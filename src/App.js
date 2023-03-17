@@ -4,6 +4,7 @@ import News from './components/News'
 import Category from './components/Category'
 import { Route, Routes } from 'react-router'
 import { Link } from 'react-router-dom'
+import Spinners from './components/Spinners'
 
 const App = () => {
 
@@ -80,6 +81,7 @@ const App = () => {
         <Route path='/category/sports' element={<News search={false} key='sports' API_KEY={API_KEY} category={'sports'} textColor={textColor} bgColor={bgColor} />} />
         <Route path='/category/technology' element={<News search={false} key='technology' API_KEY={API_KEY} category={'technology'} textColor={textColor} bgColor={bgColor} />} />
         <Route path={`/search/${searchText}`} element={<News key='search' searchText={searchText} search={true} API_KEY={API_KEY} textColor={textColor} bgColor={bgColor} />} />
+        <Route path={`/search/*`} element={ <Spinners/> } />
       </Routes>
     </>
   )

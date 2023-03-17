@@ -53,6 +53,7 @@ const News = (props) => {
             let data = await data1.json()
             setProgress(90)
             setArticles(data.articles)
+            console.log(data);
             setLoad(false)
             setProgress(100)
             setTotalResults(data.totalResults <= 100 ? data.totalResults : 100)
