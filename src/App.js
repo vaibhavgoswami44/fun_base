@@ -9,35 +9,8 @@ import Spinners from './components/Spinners'
 const App = () => {
 
   const API_KEY = process.env.REACT_APP_API_KEY
-  // const [mode, setMode] = useState('white')
-  // const [bgColor, setBgColor] = useState('white')
-  // const [modeText, setModeText] = useState("Enable Dark Mode")
-  // const [textColor, setTextColor] = useState('black')
   const [searchText, serSearchText] = useState('')
   const [alert, setAlert] = useState(false)
-
-
-
-  // const handleMode = () => {
-
-  //   if (mode === 'white') {
-  //     document.body.style.backgroundColor = 'black'
-  //     document.body.style.color = 'white'
-  //     setModeText('Disable Dark Mode')
-  //     setMode('dark')
-  //     setTextColor('white')
-  //     setBgColor('black')
-  //   }
-  //   else {
-  //     document.body.style.backgroundColor = 'white'
-  //     document.body.style.color = 'black'
-  //     setModeText('Enable Dark Mode')
-  //     setMode('white')
-  //     setTextColor('black')
-  //     setBgColor('white')
-  //   }
-  // }
-
 
   const handleText = (evt) => {
     let text = evt.target.value
@@ -45,17 +18,12 @@ const App = () => {
   }
   const handleSearch = async (evt) => {
 
-
     if (searchText.length === 0) {
-
       setAlert(true)
       setTimeout(() => {
         setAlert(false)
       }, 1500)
       return evt.preventDefault();
-    }
-    else {
-      // return evt.preventDefault();
     }
   }
 
@@ -73,15 +41,15 @@ const App = () => {
       </form>
       <Category />
       <Routes>
-        <Route path='/' element={<News search={false} key='/' API_KEY={API_KEY} category={'general'}  />} />
-        <Route path='/category/business' element={<News search={false} key='business' API_KEY={API_KEY} category={'business'}  />} />
-        <Route path='/category/entertainment' element={<News key='entertainment' API_KEY={API_KEY} category={'entertainment'}  />} />
-        <Route path='/category/health' element={<News search={false} key='helth' API_KEY={API_KEY} category={'health'}  />} />
-        <Route path='/category/science' element={<News search={false} key='science' API_KEY={API_KEY} category={'science'}  />} />
-        <Route path='/category/sports' element={<News search={false} key='sports' API_KEY={API_KEY} category={'sports'}  />} />
-        <Route path='/category/technology' element={<News search={false} key='technology' API_KEY={API_KEY} category={'technology'}  />} />
-        <Route path={`/search/${searchText}`} element={<News key='search' searchText={searchText} search={true} API_KEY={API_KEY}  />} />
-        <Route path={`/search/*`} element={ <Spinners/> } />
+        <Route path='/' element={<News search={false} key='/' API_KEY={API_KEY} category={'general'} />} />
+        <Route path='/category/business' element={<News search={false} key='business' API_KEY={API_KEY} category={'business'} />} />
+        <Route path='/category/entertainment' element={<News key='entertainment' API_KEY={API_KEY} category={'entertainment'} />} />
+        <Route path='/category/health' element={<News search={false} key='helth' API_KEY={API_KEY} category={'health'} />} />
+        <Route path='/category/science' element={<News search={false} key='science' API_KEY={API_KEY} category={'science'} />} />
+        <Route path='/category/sports' element={<News search={false} key='sports' API_KEY={API_KEY} category={'sports'} />} />
+        <Route path='/category/technology' element={<News search={false} key='technology' API_KEY={API_KEY} category={'technology'} />} />
+        <Route path={`/search/${searchText}`} element={<News key='search' searchText={searchText} search={true} API_KEY={API_KEY} />} />
+        <Route path={`/search/*`} element={<Spinners />} />
       </Routes>
     </>
   )
