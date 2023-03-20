@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector , useDispatch } from 'react-redux'
+import { changeTheme } from '../state/slices'
 
 const Navbar = (props) => {
     // {handleLanguage,handleCountry}
-    let { modeText, textColor, handleMode, bgColor } = props
+    const {bgColor ,textColor , modeText} = useSelector((state)=>state.reducer.value)
+    const dispatch = useDispatch()
     return (
         <>
             <div className='sticky-top' style={{ height: '50px' }}>
@@ -94,7 +97,7 @@ const Navbar = (props) => {
                                 </select>
                             </div> */}
                             <div className=" me-2 form-check form-switch">
-                                <input  onClick={handleMode} className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"  />
+                                <input  onClick={()=>dispatch(changeTheme())} className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"  />
                                 <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{ color: textColor }}>{modeText}</label>
                             </div>
                         </div>

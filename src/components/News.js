@@ -53,7 +53,6 @@ const News = (props) => {
             let data = await data1.json()
             setProgress(90)
             setArticles(data.articles)
-            console.log(data);
             setLoad(false)
             setProgress(100)
             setTotalResults(data.totalResults <= 100 ? data.totalResults : 100)
@@ -82,7 +81,6 @@ const News = (props) => {
 
 
 
-    let { textColor, bgColor } = props
     const upperFun = (str) => {
         let a = str
         let a1 = a.split('')
@@ -115,7 +113,7 @@ const News = (props) => {
                         <div className='d-flex justify-content-around flex-row flex-wrap' >
                             {articles.map((ele) => {
                                 return <div style={{ width: '400px' }} key={ele.url} >
-                                    <NewsItem author={ele.author ? ele.author : "Unknown"} publishedAt={ele.publishedAt ? ele.publishedAt : "Unknown"} sourceName={ele.source.name ? ele.source.name : "Unknown"} bgColor={bgColor} textColor={textColor} title={ele.title ? ele.title : "Unknown"} img={ele.urlToImage ? ele.urlToImage : "https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns="} des={ele.description ? ele.description : "Unknown"} button={ele.url ? ele.url : "Unknown"} />
+                                    <NewsItem author={ele.author ? ele.author : "Unknown"} publishedAt={ele.publishedAt ? ele.publishedAt : "Unknown"} sourceName={ele.source.name ? ele.source.name : "Unknown"}  title={ele.title ? ele.title : "Unknown"} img={ele.urlToImage ? ele.urlToImage : "https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns="} des={ele.description ? ele.description : "Unknown"} button={ele.url ? ele.url : "Unknown"} />
                                 </div>
                             })}
                         </div>
