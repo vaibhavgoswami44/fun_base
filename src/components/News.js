@@ -16,6 +16,10 @@ const News = (props) => {
     const [progress, setProgress] = useState(0)
     const category = props.category
     const search = props.search
+    const [scrollTopBtn, setscrollTopBtn] = useState(0)
+    window.onscroll = () => {
+        setscrollTopBtn(window.scrollY)
+    }
 
 
     useEffect(() => {
@@ -85,6 +89,8 @@ const News = (props) => {
         let str2 = d + b
         return str2
     }
+
+
     return (
         <>
             <LoadingBar
@@ -105,7 +111,7 @@ const News = (props) => {
                 }
             >
                 {load ? <Spinners /> :
-                    <div className='container '>
+                    <div className='container ' >
                         <div className='d-flex justify-content-around flex-row flex-wrap' >
                             {articles.map((ele) => {
                                 return <div style={{ width: '400px' }} key={ele.url} >
@@ -116,6 +122,7 @@ const News = (props) => {
                     </div>
                 }
             </InfiniteScroll>
+            <button onClick={(() => window.scrollTo(0, 0))} className='btn' style={{ fontSize: '30px', position: 'fixed', bottom: '0', right: 0, display: scrollTopBtn > 0 ? '' : 'none' }}  ><i className="bi bi-arrow-up-circle"></i></button>
         </>
     )
 }
