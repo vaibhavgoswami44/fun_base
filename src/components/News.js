@@ -4,6 +4,7 @@ import Spinners from './Spinners'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import '../App.css';
 import LoadingBar from 'react-top-loading-bar'
+import { useSelector } from 'react-redux';
 
 const News = (props) => {
 
@@ -16,6 +17,7 @@ const News = (props) => {
     const [progress, setProgress] = useState(0)
     const category = props.category
     const search = props.search
+    const { textColor } = useSelector((state) => state.reducer.value)
     const [scrollTopBtn, setscrollTopBtn] = useState(0)
     window.onscroll = () => {
         setscrollTopBtn(window.scrollY)
@@ -122,7 +124,7 @@ const News = (props) => {
                     </div>
                 }
             </InfiniteScroll>
-            <button onClick={(() => window.scrollTo(0, 0))} className='btn' style={{ fontSize: '30px', position: 'fixed', bottom: '0', right: 0, display: scrollTopBtn > 0 ? '' : 'none' }}  ><i className="bi bi-arrow-up-circle"></i></button>
+            <button onClick={(() => window.scrollTo(0, 0))} className={`btn `} style={{ color:textColor,bottom: 0, right: 0,fontSize: '30px', position: 'fixed', display: scrollTopBtn > 0 ? '' : 'none',margin:0,padding:0 }}  ><i className="bi bi-arrow-up-circle"></i></button>
         </>
     )
 }

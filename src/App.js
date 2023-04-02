@@ -5,16 +5,18 @@ import Category from './components/Category'
 import { Route, Routes } from 'react-router'
 import { Link } from 'react-router-dom'
 import Spinners from './components/Spinners'
+import { useSelector } from 'react-redux'
 
 const App = () => {
 
   const API_KEY = process.env.REACT_APP_API_KEY
-  const [searchText, serSearchText] = useState('')
+  const [searchText, setSearchText] = useState('')
   const [alert, setAlert] = useState(false)
+  const { bgColor } = useSelector((state) => state.reducer.value)
 
   const handleText = (evt) => {
     let text = evt.target.value
-    serSearchText(text)
+    setSearchText(text)
   }
   const handleSearch = async (evt) => {
 
@@ -37,7 +39,7 @@ const App = () => {
       </div>
       <form className='d-flex flex-row container mt-4 mb-3'>
         <input className="form-control me-2" type="search" placeholder="Search any Topic" aria-label="Search" onChange={handleText} />
-        <Link to={`/search/${searchText}`} onClick={handleSearch} >  <button className="btn btn-outline-success" style={{ color: 'blue' }}  >Search</button> </Link>
+        <Link to={`/search/${searchText}`} onClick={handleSearch} >  <button className={` btn btn-${bgColor==='white'?'light':'dark'} shadow`}  >Search</button> </Link>
       </form>
       <Category />
       <Routes>

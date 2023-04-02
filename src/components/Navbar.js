@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <>
             <div className='sticky-top' style={{ height: '50px' }}>
-                <nav className="navbar  navbar-expand-lg fixed-top sticky-top " style={{ boxShadow: bgColor === 'white' ? '1px 1px 10px 1px' : '1px 1px 10px 1px #525252', backgroundColor: bgColor }}>
+                <nav className={`navbar  navbar-expand-lg fixed-top sticky-top bg-${bgColor==='white'?'light':'dark'} `} style={{ boxShadow: bgColor === 'white' ? '1px 1px 10px 1px' : '1px 1px 10px 1px #525252' }}>
                     <div className="  container-fluid">
                         <a className="navbar-brand" href="/" style={{ color: textColor }}>News</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{ filter: bgColor === 'white' ? 'invert(0)' : 'invert(1)' }}>
