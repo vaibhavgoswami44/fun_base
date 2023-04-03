@@ -124,7 +124,7 @@ const News = (props) => {
                     </div>
                 }
             </InfiniteScroll>
-            <button onClick={(() => window.scrollTo(0, 0))} className={`btn `} style={{ color:textColor,bottom: 0, right: 0,fontSize: '30px', position: 'fixed', display: scrollTopBtn > 0 ? '' : 'none',margin:0,padding:0 }}  ><i className="bi bi-arrow-up-circle"></i></button>
+            <button onClick={(() => window.scrollTo(0, 0))} className={`btn `} style={{ color: `${textColor==='dark'?'black':'white'}`,bottom: 0, right: 0,fontSize: '30px', position: 'fixed', display: scrollTopBtn > 0 ? '' : 'none',margin:0,padding:0 }}  ><i className="bi bi-arrow-up-circle"></i></button>
         </>
     )
 }

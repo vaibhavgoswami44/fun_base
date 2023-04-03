@@ -24,7 +24,7 @@ const App = () => {
       setAlert(true)
       setTimeout(() => {
         setAlert(false)
-      }, 1500)
+      }, 1000)
       return evt.preventDefault();
     }
   }
@@ -34,12 +34,12 @@ const App = () => {
 
     <>
       <Navbar alert={alert} />
-      <div style={{ height: '45px', marginTop: '5px' }}>
-        {alert ? <div className="alert alert-danger" role="alert">Please Enter Text to Search </div> : ''}
+      <div style={{ height: '40px', margin: '2vh' }}>
+        {alert ? <div data-bs-theme={bgColor} className="alert alert-danger" role="alert">Please Enter Text to Search </div> : ''}
       </div>
       <form className='d-flex flex-row container mt-4 mb-3'>
         <input className="form-control me-2" type="search" placeholder="Search any Topic" aria-label="Search" onChange={handleText} />
-        <Link to={`/search/${searchText}`} onClick={handleSearch} >  <button className={` btn btn-${bgColor==='white'?'light':'dark'} shadow`}  >Search</button> </Link>
+        <Link to={`/search/${searchText}`} onClick={handleSearch} >  <button className={` btn btn-${bgColor} shadow`}  >Search</button> </Link>
       </form>
       <Category />
       <Routes>

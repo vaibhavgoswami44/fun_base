@@ -5,16 +5,16 @@ export const handleTheme = createSlice({
     initialState: {
         value: {
             modeText: 'Enable Dark Mode',
-            textColor: "black",
-            bgColor: 'white'
+            textColor: "dark",
+            bgColor: 'light'
         }
     },
     reducers: {
         changeTheme: (state) => {
-            if (state.value.bgColor === 'white') {
+            if (state.value.bgColor === 'light') {
                 state.value.modeText = 'Disbale Dark Mode'
-                state.value.textColor = "white"
-                state.value.bgColor = 'black'
+                state.value.textColor = "light"
+                state.value.bgColor = 'dark'
                 document.body.style.backgroundColor = 'black'
                 document.body.style.color = 'white'
             }
@@ -22,8 +22,8 @@ export const handleTheme = createSlice({
                 document.body.style.backgroundColor = 'white'
                 document.body.style.color = 'black'
                 state.value.modeText = 'Enable Dark Mode'
-                state.value.textColor = "black"
-                state.value.bgColor = 'white'
+                state.value.textColor = "dark"
+                state.value.bgColor = 'light'
             }
         }
     }
